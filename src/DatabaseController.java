@@ -1,9 +1,11 @@
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DatabaseController {
+    Connection connection;
 
     public void start(){
-        String url="jdbc:sqlite:C:/Users/liner/Documents/SD/SD2021S/FridayApril9thTrainDB.db";
+        String url="C:\\dataSources\\testDB.db";
 
 
     }
