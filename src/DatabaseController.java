@@ -1,12 +1,11 @@
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.event.Event;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -33,20 +32,24 @@ public class DatabaseController {
         view.exitButton.setOnAction(e-> Platform.exit());
         view.ClearButton.setOnAction(e-> clearBoxes(view.StudentCombo, view.ClassCombo));
 
-            EventHandler<ActionEvent> PrintStudent = e-> {
+            EventHandler<ActionEvent> Print = e-> {
                 try {
-                    viewClass(view.ClassCombo.getValue(),view.PrintText);
-                    System.out.println(view.ClassCombo.getValue());
+                    if(view.ClassCombo.getValue() !=null) {
+                        viewClass(view.ClassCombo.getValue(), view.PrintText);
+                    }
+                    if(view.StudentCombo.getValue() != null) {
+                        viewStudent(String.valueOf(view.StudentCombo.getValue()), view.PrintText);
+                    }
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
             };
-            view.PrintButton.setOnAction(PrintStudent);
+            view.PrintButton.setOnAction(Print);
     }
 
-    public ObservableList<String> getStudent(){
-        ArrayList<String> Names = model.SQLQueryStudentNames();
-        return FXCollections.observableList(Names);
+    public ObservableList<Integer> getStudent(){
+        ArrayList<Integer> IDs = model.SQLQueryStudentID();
+        return FXCollections.observableList(IDs);
     }
 
     public ObservableList<String> getClassname(){
@@ -79,6 +82,23 @@ public class DatabaseController {
         while(rs.next()){
             textArea.appendText("\n Average grade for the class: " + rs.getFloat("AverageGrade"));
         }
+    }
+
+    public void viewStudent(String input, TextArea textArea) throws SQLException{
+        textArea.clear();
+        String query = "Select Name,StudentID,Zipcode,Origin,Semester From Student where Student.StudentID = ?";
+        PreparedStatement preparedStatement = model.conn.prepareStatement(query);
+        preparedStatement.setString(1,input); //Sets the input as the "?" parameter
+        ResultSet rs = preparedStatement.executeQuery();
+        while(rs.next()){
+            String name = rs.getString("Name");
+            int StudentID = rs.getInt("StudentID");
+            int Zipcode = rs.getInt("Zipcode");
+            String Origin = rs.getString("Origin");
+            String Semester = rs.getString("Semester");
+            textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester);
+        }
+
     }
 
 
