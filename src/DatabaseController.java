@@ -87,8 +87,11 @@ public class DatabaseController {
     public void viewStudent(String input, TextArea textArea) throws SQLException{
         textArea.clear();
         String query = "Select Name,StudentID,Zipcode,Origin,Semester From Student where Student.StudentID = ?";
+        String query2 = "Select ClassID, Grade from InClass where InClass.ID = ?";
         PreparedStatement preparedStatement = model.conn.prepareStatement(query);
+        PreparedStatement preparedStatement2 = model.conn.prepareStatement(query2);
         preparedStatement.setString(1,input); //Sets the input as the "?" parameter
+        preparedStatement2.setString(1,input);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
             String name = rs.getString("Name");
@@ -97,6 +100,12 @@ public class DatabaseController {
             String Origin = rs.getString("Origin");
             String Semester = rs.getString("Semester");
             textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester);
+        }
+        rs = preparedStatement2.executeQuery();
+        while(rs.next()){
+            String ClassID = rs.getString("ClassID");
+            float Grade = rs.getFloat("Grade");
+            textArea.appendText("\n Class: " + ClassID + " Grade: " + Grade);
         }
 
     }
