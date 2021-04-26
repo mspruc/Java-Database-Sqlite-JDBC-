@@ -1,11 +1,106 @@
-import java.sql.SQLException;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.event.Event;
+import java.sql.*;
+import java.util.ArrayList;
+
+import static java.sql.DriverManager.getConnection;
 
 public class DatabaseController {
+    DatabaseModel model;
+    DatabaseView view;
 
-    public void start(){
-        String url="jdbc:sqlite:C:/Users/liner/Documents/SD/SD2021S/FridayApril9thTrainDB.db";
+    public DatabaseController(DatabaseModel model){
+        this.model = model;
+        try{
+            model.connect();
+            model.CreateStatement();
 
-
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 
-}
+    public void setView(DatabaseView view){
+        this.view = view;
+        view.exitButton.setOnAction(e-> Platform.exit());
+        view.ClearButton.setOnAction(e-> clearBoxes(view.StudentCombo, view.ClassCombo));
+
+            EventHandler<ActionEvent> PrintStudent = e-> {
+                try {
+                    viewClass(view.ClassCombo.getValue(),view.PrintText);
+                    System.out.println(view.ClassCombo.getValue());
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            };
+            view.PrintButton.setOnAction(PrintStudent);
+    }
+
+    public ObservableList<String> getStudent(){
+        ArrayList<String> Names = model.SQLQueryStudentNames();
+        return FXCollections.observableList(Names);
+    }
+
+    public ObservableList<String> getClassname(){
+        ArrayList<String> Names = model.SQLQueryClass();
+        return FXCollections.observableList(Names);
+    }
+
+    public void clearBoxes(ComboBox student, ComboBox course){
+        student.valueProperty().set(null);
+        course.valueProperty().set(null);
+    }
+
+    public void viewClass(String input, TextArea textArea) throws SQLException{
+        textArea.clear();
+        String query = "Select ID, Name, Grade From InClass where InClass.ClassID = ?";
+        String query2 = "Select AverageGrade from Class where Class.ClassID = ?";
+        PreparedStatement preparedStatement = model.conn.prepareStatement(query);
+        PreparedStatement preparedStatement2 = model.conn.prepareStatement(query2);
+        preparedStatement.setString(1,input); //Sets the input as the "?" parameter
+        preparedStatement2.setString(1,input);
+        ResultSet rs = preparedStatement.executeQuery();
+        textArea.appendText(input);
+        while(rs.next()){
+            int ID = rs.getInt("ID");
+            String name = rs.getString("Name");
+            float Grade = rs.getFloat("Grade");
+            textArea.appendText("\n ID: " + ID +" Name: " + name + " Grade: " + Grade);
+        }
+        rs = preparedStatement2.executeQuery();
+        while(rs.next()){
+            textArea.appendText("\n Average grade for the class: " + rs.getFloat("AverageGrade"));
+        }
+    }
+
+
+    /*public void HandlePrintStudent(String name, TextArea txtArea){
+        txtArea.clear();
+        txtArea.appendText("Name \n");
+        model.PreparedStmtFindStudentQuert();
+        ArrayList<Student> names = model.FindStudent(name);
+        for(int i = 0; i<names.size(); i++){
+            txtArea.appendText(i+ " : " + names.get(i).name);
+        }
+    }
+
+    public void HandlePrintClass(String name, TextArea txtArea){
+        txtArea.clear();
+        txtArea.appendText("Name \n");
+        model.PreparedStmtFindClassQuert();
+        ArrayList<Course> course = model.FindClass(name);
+        for(int i = 0; i<course.size(); i++){
+            txtArea.appendText(i+ " : " + course.get(i).name);
+        }
+    }*/
+    }
+
+
