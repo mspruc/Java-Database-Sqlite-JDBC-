@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a2c8d0d-dab9-47e4-9bb3-4fef135510c1" name="Default Changelist" comment="Test commit db">
-      <change beforePath="$PROJECT_DIR$/src/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseController.java" afterDir="false" />
+    <list default="true" id="dbffe1e1-78df-40a3-9782-2818b0692b7b" name="Default Changelist" comment="JOINERZZZ">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d1e6f00-6d76-49da-97c6-e31e13d86add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d1e6f00-6d76-49da-97c6-e31e13d86add.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,100 +21,124 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1rNUKAVz5xSg9s7d1icNmpi5vdm" />
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="0b2c5a42-fb4a-4bfc-937a-f1e8a3f40b52" />
+  </component>
+  <component name="ProjectId" id="1rNVLpDwfTSCB5mN6ucsGekrLHc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Portfolio3" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Frede\Desktop\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6a2c8d0d-dab9-47e4-9bb3-4fef135510c1" name="Default Changelist" comment="" />
-      <created>1618815974426</created>
+      <changelist id="dbffe1e1-78df-40a3-9782-2818b0692b7b" name="Default Changelist" comment="" />
+      <created>1618816480936</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1618815974426</updated>
-      <workItem from="1618815975660" duration="4709000" />
+      <updated>1618816480936</updated>
+      <workItem from="1618816482417" duration="5568000" />
+      <workItem from="1618898381930" duration="10410000" />
+      <workItem from="1619424244097" duration="11650000" />
+      <workItem from="1619510653051" duration="4129000" />
     </task>
-    <task id="LOCAL-00001" summary="Test commit">
-      <created>1618816593235</created>
+    <task id="LOCAL-00001" summary="JDBC Commit">
+      <created>1619433323126</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1618816593235</updated>
+      <updated>1619433323126</updated>
     </task>
-    <task id="LOCAL-00002" summary="Test commit">
-      <created>1618816670606</created>
+    <task id="LOCAL-00002" summary="More JDBC commitings">
+      <created>1619434601907</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1618816670606</updated>
+      <updated>1619434601907</updated>
     </task>
-    <task id="LOCAL-00003" summary="Test commit db">
-      <created>1618817128912</created>
+    <task id="LOCAL-00003" summary="More JDBC commitings">
+      <created>1619435066226</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1618817128912</updated>
+      <updated>1619435066226</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JOINERZZZ">
+      <created>1619514360055</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619514360055</updated>
+    </task>
+    <task id="LOCAL-00005" summary="JOINERZZZ">
+      <created>1619514592374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619514592374</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test commit" />
-    <MESSAGE value="Test commit db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test commit db" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="872" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618817115803">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618817115803" />
-    <state x="3007" y="340" key="FileChooserDialogImpl" timestamp="1618817113222">
-      <screen x="2560" y="0" width="1920" height="1040" />
-    </state>
-    <state x="3007" y="340" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618817113222" />
-    <state x="1158" y="598" key="Github.ShareDialog" timestamp="1618816093775">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1158" y="598" key="Github.ShareDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618816093775" />
-    <state x="1077" y="405" key="Github.UntrackedFilesDialog" timestamp="1618816097257">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1077" y="405" key="Github.UntrackedFilesDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618816097257" />
-    <state width="1741" height="401" key="GridCell.Tab.0.bottom" timestamp="1618822174886">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1741" height="401" key="GridCell.Tab.0.bottom/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618822174886" />
-    <state width="1741" height="401" key="GridCell.Tab.0.center" timestamp="1618822174886">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1741" height="401" key="GridCell.Tab.0.center/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618822174886" />
-    <state width="1741" height="401" key="GridCell.Tab.0.left" timestamp="1618822174886">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1741" height="401" key="GridCell.Tab.0.left/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618822174886" />
-    <state width="1741" height="401" key="GridCell.Tab.0.right" timestamp="1618822174886">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1741" height="401" key="GridCell.Tab.0.right/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618822174886" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1618817132202">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1618817132202" />
+    <MESSAGE value="JDBC Commit" />
+    <MESSAGE value="More JDBC commitings" />
+    <MESSAGE value="JOINERZZZ" />
+    <option name="LAST_COMMIT_MESSAGE" value="JOINERZZZ" />
   </component>
 </project>

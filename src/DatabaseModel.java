@@ -17,69 +17,9 @@ public class DatabaseModel {
         public void connect() throws SQLException {
             conn=getConnection(url);
         }
-        public void close() throws SQLException{
-            if (conn != null){
-                conn.close();
-            }
-        }
 
         public void CreateStatement() throws SQLException{
             this.stmt = conn.createStatement();
-        }
-
-        public void PreparedStmtFindStudentQuert(){
-            String sql = "SELECT * From Student as S1 Where S1.Name = ?;";
-            try{
-                pstmt = conn.prepareStatement(sql);
-            }catch(SQLException e){
-                System.out.println(e.getMessage());
-            }
-        }
-
-         public void PreparedStmtFindClassQuert(){
-            String sql = "SELECT * From Class as C1 Where C1.Name = ?;";
-            try{
-                pstmt = conn.prepareStatement(sql);
-            }catch(SQLException e){
-                System.out.println(e.getMessage());
-            }
-        }
-
-
-        public ArrayList<Course> FindClass(String name) {
-            ArrayList<Course> course = new ArrayList<Course>();
-            try {
-                pstmt.setString(1, name);
-                rs = pstmt.executeQuery();
-                if (rs == null) {
-                    System.out.println("No records fetched");
-                }
-                while (rs != null && rs.next()) {
-                    course.add(new Course(rs.getString(1),rs.getFloat(2),rs.getArray(3),rs.getArray(4)));
-                    System.out.println("Name: " + rs.getString(1) + "Average Grade: " + rs.getFloat(2) + "Students: " + rs.getArray(3) + "Teachers: " + rs.getArray(4));
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }return course;
-        }
-
-
-        public ArrayList<Student> FindStudent(String name){
-            ArrayList<Student> students = new ArrayList<>();
-            try{
-                pstmt.setString(1,name);
-                rs = pstmt.executeQuery();
-                if(rs==null){
-                    System.out.println("No records fetched.");
-                }
-                while (rs!=null && rs.next()){
-                    students.add(new Student(rs.getString(1)));
-                    System.out.println("Name: " + rs.getString(1));
-                }
-            }catch (SQLException e){
-                System.out.println(e.getMessage());
-            } return students;
-
         }
 
         public ArrayList<Integer> SQLQueryStudentID(){

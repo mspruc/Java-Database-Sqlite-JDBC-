@@ -99,27 +99,6 @@ public class DatabaseController {
         }
 
     }
-
-
-    /*public void HandlePrintStudent(String name, TextArea txtArea){
-        txtArea.clear();
-        txtArea.appendText("Name \n");
-        model.PreparedStmtFindStudentQuert();
-        ArrayList<Student> names = model.FindStudent(name);
-        for(int i = 0; i<names.size(); i++){
-            txtArea.appendText(i+ " : " + names.get(i).name);
-        }
-    }
-
-    public void HandlePrintClass(String name, TextArea txtArea){
-        txtArea.clear();
-        txtArea.appendText("Name \n");
-        model.PreparedStmtFindClassQuert();
-        ArrayList<Course> course = model.FindClass(name);
-        for(int i = 0; i<course.size(); i++){
-            txtArea.appendText(i+ " : " + course.get(i).name);
-        }
-    }*/
-    }
+}
 
 
