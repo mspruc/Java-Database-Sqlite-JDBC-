@@ -33,6 +33,7 @@ public class DatabaseView {
     }
 
     private void CreateAndConfigure(){
+        //Creates the javaFX window, buttons and labels
         StartView = new GridPane();
         StartView.setMinSize(500,400);
         StartView.setPadding(new Insets(10,10,10,10));
@@ -50,6 +51,7 @@ public class DatabaseView {
         StartView.add(PrintText,1,7,15,7);
         StartView.add(exitButton,20,15);
 
+        //Sets items for comboboxes
         ObservableList<Integer> studentList = control.getStudent();
         StudentCombo.setItems(studentList);
 
@@ -69,7 +71,6 @@ public class DatabaseView {
 
 
     }
-
     public Parent asParent() {
         return StartView;
     }

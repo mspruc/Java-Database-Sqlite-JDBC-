@@ -22,6 +22,7 @@ public class DatabaseModel {
             this.stmt = conn.createStatement();
         }
 
+        //Gets student ids from database with a query
         public ArrayList<Integer> SQLQueryStudentID(){
             ArrayList<Integer> IDs = new ArrayList<>();
             String sql = "Select StudentID From Student;";
@@ -39,7 +40,7 @@ public class DatabaseModel {
             return IDs;
         }
 
-
+        //Gets class names from database with a query
         public ArrayList<String> SQLQueryClass(){
             ArrayList<String> Names = new ArrayList<>();
             String sql = "Select ClassID From Class;";
@@ -56,30 +57,6 @@ public class DatabaseModel {
             rs=null;
             return Names;
         }
-
-
 }
 
-class Course{
-    String name;
-    float avgGrade;
-    Array students;
-    Array teachers;
 
-    public Course(String name, float avgGrade, Array students, Array teachers){
-        this.name = name;
-        this.avgGrade = avgGrade;
-        this.students = students;
-        this.teachers = teachers;
-    }
-}
-
-class Student{
-    String name;
-    float  avgGrade;
-    String monkey;
-
-    public Student(String name){
-        this.name = name;
-    }
-}
