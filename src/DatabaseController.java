@@ -111,7 +111,7 @@ public class DatabaseController {
 
     public void viewStudent(String input, TextArea textArea) throws SQLException{
         textArea.clear();
-        String query = "Select Student.Name,Student.StudentID,Student.Zipcode,Student.Origin,Student.Semester, InClass.ClassID, InClass.Grade from Student LEFT OUTER JOIN InClass ON Student.StudentID = InClass.ID where Student.StudentID = ?;";
+        String query = "Select Student.Name,Student.StudentID,Student.Zipcode,Student.Origin,Student.Semester, Student.AverageGrade, InClass.ClassID, InClass.Grade from Student LEFT OUTER JOIN InClass ON Student.StudentID = InClass.ID where Student.StudentID = ?;";
         PreparedStatement preparedStatement = model.conn.prepareStatement(query);
         preparedStatement.setString(1,input); //Sets the input as the "?" parameter
         ResultSet rs = preparedStatement.executeQuery();
@@ -120,7 +120,8 @@ public class DatabaseController {
         int Zipcode = rs.getInt("Zipcode");
         String Origin = rs.getString("Origin");
         String Semester = rs.getString("Semester");
-        textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester);
+        float averageGrade = rs.getFloat("AverageGrade");
+        textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester + " Average grade: " + averageGrade);
 
         while(rs.next()){
             String ClassID = rs.getString("ClassID");
