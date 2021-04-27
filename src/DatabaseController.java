@@ -64,44 +64,34 @@ public class DatabaseController {
 
     public void viewClass(String input, TextArea textArea) throws SQLException{
         textArea.clear();
-        String query = "Select ID, Name, Grade From InClass where InClass.ClassID = ?";
-        String query2 = "Select AverageGrade from Class where Class.ClassID = ?";
+        String query = "Select InClass.ID, InClass.ClassID, InClass.name, InClass.Grade, Class.AverageGrade From InClass LEFT OUTER JOIN Class ON InClass.ClassID = Class.ClassID where InClass.ClassID = ?;";
         PreparedStatement preparedStatement = model.conn.prepareStatement(query);
-        PreparedStatement preparedStatement2 = model.conn.prepareStatement(query2);
         preparedStatement.setString(1,input); //Sets the input as the "?" parameter
-        preparedStatement2.setString(1,input);
         ResultSet rs = preparedStatement.executeQuery();
         textArea.appendText(input);
+        float AverageGrade = rs.getFloat("AverageGrade");
         while(rs.next()){
             int ID = rs.getInt("ID");
             String name = rs.getString("Name");
             float Grade = rs.getFloat("Grade");
             textArea.appendText("\n ID: " + ID +" Name: " + name + " Grade: " + Grade);
         }
-        rs = preparedStatement2.executeQuery();
-        while(rs.next()){
-            textArea.appendText("\n Average grade for the class: " + rs.getFloat("AverageGrade"));
-        }
+        textArea.appendText("\n Average grade: " + AverageGrade);
     }
 
     public void viewStudent(String input, TextArea textArea) throws SQLException{
         textArea.clear();
-        String query = "Select Name,StudentID,Zipcode,Origin,Semester From Student where Student.StudentID = ?";
-        String query2 = "Select ClassID, Grade from InClass where InClass.ID = ?";
+        String query = "Select Student.Name,Student.StudentID,Student.Zipcode,Student.Origin,Student.Semester, InClass.ClassID, InClass.Grade from Student LEFT OUTER JOIN InClass ON Student.StudentID = InClass.ID where Student.StudentID = ?;";
         PreparedStatement preparedStatement = model.conn.prepareStatement(query);
-        PreparedStatement preparedStatement2 = model.conn.prepareStatement(query2);
         preparedStatement.setString(1,input); //Sets the input as the "?" parameter
-        preparedStatement2.setString(1,input);
         ResultSet rs = preparedStatement.executeQuery();
-        while(rs.next()){
-            String name = rs.getString("Name");
-            int StudentID = rs.getInt("StudentID");
-            int Zipcode = rs.getInt("Zipcode");
-            String Origin = rs.getString("Origin");
-            String Semester = rs.getString("Semester");
-            textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester);
-        }
-        rs = preparedStatement2.executeQuery();
+        String name = rs.getString("Name");
+        int StudentID = rs.getInt("StudentID");
+        int Zipcode = rs.getInt("Zipcode");
+        String Origin = rs.getString("Origin");
+        String Semester = rs.getString("Semester");
+        textArea.appendText("\n ID: " + StudentID +" Name: " + name + " Origin: " + Origin + " Zipcode: " + Zipcode + " Semester: " + Semester);
+
         while(rs.next()){
             String ClassID = rs.getString("ClassID");
             float Grade = rs.getFloat("Grade");
