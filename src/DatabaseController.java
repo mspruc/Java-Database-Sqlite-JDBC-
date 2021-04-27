@@ -30,7 +30,14 @@ public class DatabaseController {
     public void setView(DatabaseView view){
         this.view = view;
         view.exitButton.setOnAction(e-> Platform.exit());
-        view.ClearButton.setOnAction(e-> clearBoxes(view.StudentCombo, view.ClassCombo));
+        view.ClearButton.setOnAction(e-> clearBoxes(view.StudentCombo, view.ClassCombo, view.GradeCombo));
+        view.InsertButton.setOnAction(e-> {
+            try {
+                insertGrade(view.StudentCombo.getValue(),view.ClassCombo.getValue(),view.GradeCombo.getValue(),view.PrintText);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
 
             EventHandler<ActionEvent> Print = e-> {
                 try {
@@ -57,9 +64,10 @@ public class DatabaseController {
         return FXCollections.observableList(Names);
     }
 
-    public void clearBoxes(ComboBox student, ComboBox course){
+    public void clearBoxes(ComboBox student, ComboBox course, ComboBox grade){
         student.valueProperty().set(null);
         course.valueProperty().set(null);
+        grade.valueProperty().set(null);
     }
 
     public void viewClass(String input, TextArea textArea) throws SQLException{
@@ -77,6 +85,28 @@ public class DatabaseController {
             textArea.appendText("\n ID: " + ID +" Name: " + name + " Grade: " + Grade);
         }
         textArea.appendText("\n Average grade: " + AverageGrade);
+    }
+
+    public void insertGrade(Integer studentInput, String classInput, float gradeInput, TextArea textArea) throws SQLException {
+        textArea.clear();
+        System.out.println(String.valueOf(gradeInput));
+        System.out.println(String.valueOf(studentInput));
+        System.out.println(classInput);
+        String query = "UPDATE InClass SET grade = ? where InClass.ID = ? AND InClass.ClassID = ?";
+        PreparedStatement preparedStatement = model.conn.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(gradeInput));
+        preparedStatement.setString(2, String.valueOf(studentInput));
+        preparedStatement.setString(3,classInput);
+        preparedStatement.execute();
+        textArea.appendText("If the student is in the class you have chosen we have done the following:");
+        textArea.appendText("\n Inserted grade: " + gradeInput + " in class: " + classInput + " for student: " + studentInput);
+
+        query = "UPDATE Class SET AverageGrade = (Select AVG(Grade) from InClass WHERE InClass.ClassID = ?);";
+        preparedStatement = model.conn.prepareStatement(query);
+        preparedStatement.setString(1,classInput);
+        preparedStatement.execute();
+
+
     }
 
     public void viewStudent(String input, TextArea textArea) throws SQLException{
