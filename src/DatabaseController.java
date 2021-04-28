@@ -130,7 +130,7 @@ public class DatabaseController {
         ResultSet rs = preparedStatement.executeQuery();
         String name = rs.getString("Name");
         int StudentID = rs.getInt("StudentID");
-        int Zipcode = rs.getInt("Zipcode");
+        String Zipcode = rs.getString("Zipcode");
         String Origin = rs.getString("Origin");
         String Semester = rs.getString("Semester");
         String averageGrade = rs.getString("AverageGrade");
