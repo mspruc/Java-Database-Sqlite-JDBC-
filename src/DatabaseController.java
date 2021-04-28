@@ -124,7 +124,7 @@ public class DatabaseController {
     //Handels the print of a student
     public void viewStudent(String input, TextArea textArea) throws SQLException{
         textArea.clear();
-        String query = "Select Student.Name,Student.StudentID,Student.Zipcode,Student.Origin,Student.Semester, Student.AverageGrade, InClass.ClassID, InClass.Grade from Student LEFT OUTER JOIN InClass ON Student.StudentID = InClass.ID where Student.StudentID = ?;";
+        String query = "Select Student.Name,Student.StudentID,Student.Semester, Student.AverageGrade, Location.Zipcode, Location.Origin, InClass.ClassID, InClass.Grade from Student LEFT OUTER JOIN InClass ON Student.StudentID = InClass.ID join location on location.StudentID = Student.StudentID where Student.StudentID = ?;";
         PreparedStatement preparedStatement = model.conn.prepareStatement(query);
         preparedStatement.setString(1,input); //Sets the input as the "?" parameter
         ResultSet rs = preparedStatement.executeQuery();

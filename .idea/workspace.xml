@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbffe1e1-78df-40a3-9782-2818b0692b7b" name="Default Changelist" comment="Updated comments and updated averagegrade properly">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d1e6f00-6d76-49da-97c6-e31e13d86add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d1e6f00-6d76-49da-97c6-e31e13d86add.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Portfolio3/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Portfolio3/DatabaseView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Portfolio3/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +77,7 @@
       <workItem from="1619510653051" duration="10314000" />
       <workItem from="1619522828967" duration="3725000" />
       <workItem from="1619526906323" duration="18000" />
-      <workItem from="1619597153913" duration="569000" />
+      <workItem from="1619597153913" duration="4847000" />
     </task>
     <task id="LOCAL-00001" summary="JDBC Commit">
       <created>1619433323126</created>
@@ -135,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619526565147</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updated Students and if zipcode is null it prints null">
+      <created>1619598006386</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619598006386</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +175,7 @@
     <MESSAGE value="Insert Grade" />
     <MESSAGE value="Updated names and averagegrade" />
     <MESSAGE value="Updated comments and updated averagegrade properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated comments and updated averagegrade properly" />
+    <MESSAGE value="Updated Students and if zipcode is null it prints null" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Students and if zipcode is null it prints null" />
   </component>
 </project>
